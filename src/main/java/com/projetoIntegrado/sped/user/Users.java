@@ -1,5 +1,6 @@
-package com.projetoIntegrado.sped.entity;
+package com.projetoIntegrado.sped.user;
 
+import com.projetoIntegrado.sped.entity.UserRoles;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,8 @@ public class Users {
     @ManyToOne
     @JoinColumn
     private UserRoles userRole;
+
+
 
 
 }
