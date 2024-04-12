@@ -1,30 +1,56 @@
 package com.projetoIntegrado.sped.user;
 
-import com.projetoIntegrado.sped.entity.UserRoles;
+import com.projetoIntegrado.sped.userRoles.UserRoles;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Entity
+@Table(name = "users")
+@Entity(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
-@Table (name = "users")
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userName;
+
+    @Column(name = "address_number")
+    private int addressNumber;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "neighbourhood")
+    private String neighbourhood;
+
+    @Column(name = "postal_code")
+    private int postalCode;
+
+    @Column(name = "state")
+    private String state;
+
+    @Column(name = "street")
+    private String street;
+
+    @Column(name = "cpf")
     private int cpf;
+
+    @Column(name = "pass")
     private String pass;
-    private int roleId;
-
-    @ManyToOne
-    @JoinColumn
-    private UserRoles userRole;
 
 
+    public Users(UserRequestDTO data){
+        this.addressNumber = data.addressNumber();
+        this.city = data.city();
+        this.neighbourhood = data.neighbourhood();
+        this.postalCode = data.postalCode();
+        this.state = data.state();
+        this.street = data.street();
+        this.cpf = data.cpf();
+        this.pass = data.pass();
+    }
 
 
 }
