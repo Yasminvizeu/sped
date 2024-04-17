@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping("/encontraCpf/{cpf}")
-    public Users encontraCpf(@PathVariable int cpf) {
+    public Users encontraCpf(@PathVariable String cpf) {
         return repository.findIdByCpf(cpf);
     }
 
