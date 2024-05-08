@@ -1,5 +1,6 @@
 package com.projetoIntegrado.sped.user;
 
+import com.projetoIntegrado.sped.school.Schools;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -104,4 +105,5 @@ public class Users implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

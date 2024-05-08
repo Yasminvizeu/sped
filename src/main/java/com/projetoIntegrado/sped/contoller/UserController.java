@@ -43,10 +43,6 @@ public class UserController {
         return repository.findIdByCpf(cpf);
     }
 
-    @GetMapping("/gcm")
-    public void redirecionaGcm(@PathVariable int cpf) {
-
-    }
 
 
 
