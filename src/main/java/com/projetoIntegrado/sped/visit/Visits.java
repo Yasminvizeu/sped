@@ -1,4 +1,4 @@
-package com.projetoIntegrado.sped.visit.school;
+package com.projetoIntegrado.sped.visit;
 
 import com.projetoIntegrado.sped.school.Schools;
 import com.projetoIntegrado.sped.user.Users;
@@ -8,7 +8,7 @@ import lombok.*;
 import java.util.Date;
 
 @Table(name = "visits")
-@Entity(name = "visists")
+@Entity(name = "visits")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -32,4 +32,9 @@ public class Visits {
 
     @Column(name = "visit_Period")
     private String visitPeriod;
+
+    public Visits(VisitRequestDTO data) {
+        this.visitDate = data.visitDate();
+        this.visitPeriod = data.visitPeriod();
+    }
 }

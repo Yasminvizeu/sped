@@ -4,19 +4,12 @@ import com.projetoIntegrado.sped.school.SchoolRepository;
 import com.projetoIntegrado.sped.school.SchoolRequestDTO;
 import com.projetoIntegrado.sped.school.SchoolResponseDTO;
 import com.projetoIntegrado.sped.school.Schools;
-import com.projetoIntegrado.sped.user.UserRepository;
-import com.projetoIntegrado.sped.user.UserRequestDTO;
-import com.projetoIntegrado.sped.user.UserResponseDTO;
-import com.projetoIntegrado.sped.user.Users;
-import com.projetoIntegrado.sped.visit.school.VisitRepository;
-import com.projetoIntegrado.sped.visit.school.VisitRequestDTO;
-import com.projetoIntegrado.sped.visit.school.VisitResponseDTO;
-import com.projetoIntegrado.sped.visit.school.Visits;
+import com.projetoIntegrado.sped.visit.VisitRepository;
+import com.projetoIntegrado.sped.visit.VisitRequestDTO;
+import com.projetoIntegrado.sped.visit.Visits;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/home")
@@ -36,15 +29,14 @@ public class SchoolController {
 
     @PostMapping
     public void saveSchool(@RequestBody SchoolRequestDTO data){
-        Schools school = new Schools();
+        Schools school = new Schools(data);
         schoolRepository.save(school);
     }
 
-    @PostMapping("/visit/{id}")
-    public void modalSaveVisit(@RequestBody VisitRequestDTO visitData){
-        Visits visit = new Visits();
+    @PostMapping("/visit")
+    public void modalSaveVisit(@RequestBody VisitRequestDTO data){
+        Visits visit = new Visits(data);
         visitRepository.save(visit);
         //schoolRepository.selectSchools(visitData.schoolId());
     }
-
 }

@@ -27,10 +27,21 @@ public class Schools {
     @Column(name = "securityLevel")
     private int securityLevel;
 
-    @Column(name = "localizacao", columnDefinition = "POINT")
-    private String location;
+    @Column(name = "latitude")
+    private String latitude;
+
+    @Column(name = "longitude")
+    private String longitude;
 
     @Column(name = "selected_for_visit")
     private Boolean selected;
 
+    public Schools(SchoolRequestDTO data) {
+        this.name = data.name();
+        this.urgentCall = data.urgentCall();
+        this.securityLevel = data.securityLevel();
+        this.latitude = data.latitude();
+        this.longitude = data.longitude();
+        this.selected = data.selected();
+    }
 }
