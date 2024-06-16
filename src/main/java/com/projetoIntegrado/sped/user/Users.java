@@ -31,18 +31,30 @@ public class Users implements UserDetails {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "name")
+    private String name;
 
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "phone")
+    private String phone;
 
     public Users(UserRequestDTO data){
         this.cpf = data.cpf();
         this.pass = data.pass();
         this.role = data.role();
+        this.name = data.name();
+        this.city = data.city();
+        this.phone = data.phone();
+
     }
     public Users(String cpf, String pass, String role){
         this.cpf = cpf;
         this.pass = pass;
         this.role = role;
     }
+
 
 
     @Override
