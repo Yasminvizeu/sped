@@ -7,4 +7,5 @@ public record SchoolResponseDTO(Long id, String name, Boolean urgentCall, int se
     public SchoolResponseDTO(Schools school) {
         this(school.getId(),school.getName(), school.getUrgentCall(), school.getSecurityLevel(), school.getLatitude(),school.getLongitude(), school.getSelected());
     }
+
 }
